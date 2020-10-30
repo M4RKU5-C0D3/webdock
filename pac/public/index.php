@@ -6,6 +6,10 @@ $menu = [
     'GitLab' => '',
     'PHPInfo' => '/pac/xinfo.php',
 ];
+$menu2 = [
+    'hub.docker.com' => 'https://hub.docker.com/r/m4rku5/webdock',
+    'github.com' => 'https://github.com/M4RKU5-C0D3/webdock',
+];
 ?>
 <!doctype html>
 <html lang="en">
@@ -74,30 +78,14 @@ $menu = [
                         </a>
                     </h6>
                     <ul class="nav flex-column mb-2">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file-text"></span>
-                                Current month
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file-text"></span>
-                                Last quarter
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file-text"></span>
-                                Social engagement
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file-text"></span>
-                                Year-end sale
-                            </a>
-                        </li>
+                        <?php foreach ($menu2 as $label => $link) { ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?= $link ?>" target="_blank">
+                                    <span data-feather="file-text"></span>
+                                    <?= $label ?>
+                                </a>
+                            </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </nav>

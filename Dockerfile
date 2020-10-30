@@ -6,8 +6,12 @@ COPY ./docker   /var/docker
 COPY ./pac      /var/pac
 
 RUN apt-get update
-RUN apt-get install -y wget git libicu-dev
+RUN apt-get install -y sudo wget git libicu-dev
 RUN apt-get autoremove -y
+
+RUN groupadd project
+RUN useradd -g project project
+RUN echo "project ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 RUN docker-php-ext-configure intl
 
@@ -30,10 +34,12 @@ RUN ln -sf /var/docker/profile /etc/profile.d/project.sh
 
 RUN wget -q -O /usr/local/bin/composer https://getcomposer.org/composer-stable.phar && chmod +x /usr/local/bin/composer
 
-ENTRYPOINT [ "/var/docker/entrypoint.sh" ]
-
 VOLUME [ "/var/project" ]
 
 WORKDIR /var/project
 
-CMD ["apache2-foreground"]
+USER project:project
+
+ENTRYPOINT [ "sudo", "/var/docker/entrypoint.sh" ]
+
+CMD [ "apache2-foreground" ]

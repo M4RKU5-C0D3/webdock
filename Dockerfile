@@ -1,7 +1,9 @@
 # https://github.com/docker-library/php/tree/master/7.4/buster/apache
 FROM php:7.4-apache-buster
 
-COPY .  /var/docker
+COPY ./project  /var/project
+COPY ./docker   /var/docker
+COPY ./pac      /var/pac
 
 RUN apt-get update
 RUN apt-get install -y wget git libicu-dev
@@ -24,9 +26,7 @@ RUN a2enmod  rewrite
 
 RUN ln -sf /var/docker/php/config.ini /usr/local/etc/php/conf.d/project.ini
 
-RUN ln -sf /var/docker/.bashrc ~/.bashrc
-
-RUN ln -sf /var/docker/demo /var/project
+RUN ln -sf /var/docker/profile /etc/profile.d/project.sh
 
 RUN wget -q -O /usr/local/bin/composer https://getcomposer.org/composer-stable.phar && chmod +x /usr/local/bin/composer
 

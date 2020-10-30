@@ -1,1 +1,3 @@
-/src/demo/logs/*.log
+/.env
+
+*.log

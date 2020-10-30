@@ -3,10 +3,12 @@ services:
     web:
         image: m4rku5/webdock
         container_name: webdock
+        env_file: .env
         volumes: 
             - ~:/var/host
             # dev
-            - ./src:/var/docker
-            - ./src/demo:/var/project
+            - ./docker:/var/docker
+            - ./pac:/var/pac
+            - ./project:/var/project
         ports:
-            - 8001:80
+            - ${DOCKER_PORT}:80

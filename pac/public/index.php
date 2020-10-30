@@ -1,9 +1,10 @@
 <?php
 $menu = [
-    'Dashboard',
-    'Environment',
-    'Docker',
-    'GitLab',
+    'Dashboard' => '',
+    'Environment' => '',
+    'Docker' => '',
+    'GitLab' => '',
+    'PHPInfo' => '/pac/xinfo.php',
 ];
 ?>
 <!doctype html>
@@ -56,11 +57,11 @@ $menu = [
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                 <div class="sidebar-sticky pt-3">
                     <ul class="nav flex-column">
-                        <?php foreach ($menu as $menuitem) { ?>
+                        <?php foreach ($menu as $label => $link) { ?>
                             <li class="nav-item">
-                                <a class="nav-link active" href="#">
+                                <a class="nav-link active" href="<?= $link ?>">
                                     <span data-feather="home"></span>
-                                    <?= $menuitem ?> <span class="sr-only">(current)</span>
+                                    <?= $label ?> <span class="sr-only">(current)</span>
                                 </a>
                             </li>
                         <?php } ?>

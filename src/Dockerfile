@@ -1,0 +1,39 @@
+# https://github.com/docker-library/php/tree/master/7.4/buster/apache
+FROM php:7.4-apache-buster
+
+COPY .  /var/docker
+
+RUN apt-get update
+RUN apt-get install -y wget git libicu-dev
+RUN apt-get autoremove -y
+
+RUN docker-php-ext-configure intl
+
+RUN docker-php-ext-install intl opcache
+
+RUN pecl install apcu xdebug
+
+RUN docker-php-ext-enable apcu xdebug
+
+RUN rm /etc/apache2/sites-enabled/* /etc/apache2/sites-available/*
+RUN ln -sf /var/docker/apache/apache.conf   /etc/apache2/conf-available/project.conf
+RUN ln -sf /var/docker/apache/site.conf     /etc/apache2/sites-available/project.conf
+RUN a2enconf project
+RUN a2ensite project
+RUN a2enmod  rewrite
+
+RUN ln -sf /var/docker/php/config.ini /usr/local/etc/php/conf.d/project.ini
+
+RUN ln -sf /var/docker/.bashrc ~/.bashrc
+
+RUN ln -sf /var/docker/demo /var/project
+
+RUN wget -q -O /usr/local/bin/composer https://getcomposer.org/composer-stable.phar && chmod +x /usr/local/bin/composer
+
+ENTRYPOINT [ "/var/docker/entrypoint.sh" ]
+
+VOLUME [ "/var/project" ]
+
+WORKDIR /var/project
+
+CMD ["apache2-foreground"]

@@ -1,0 +1,12 @@
+version: '3'
+services:
+    web:
+        image: m4rku5/webdock
+        container_name: webdock
+        volumes: 
+            - ~:/var/host
+            # dev
+            - ./src:/var/docker
+            - ./src/demo:/var/project
+        ports:
+            - 8001:80

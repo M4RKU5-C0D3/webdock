@@ -13,6 +13,8 @@ RUN groupadd project
 RUN useradd -g project project
 RUN echo "project ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
+RUN chown -R project. /var/pac /var/project
+
 RUN docker-php-ext-configure intl
 
 RUN docker-php-ext-install intl opcache

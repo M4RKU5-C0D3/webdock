@@ -6,6 +6,7 @@ services:
         env_file: .env
         volumes: 
             - ~:/var/host
+            - ~/.composer:/var/composer/
             # dev
             - ./docker:/var/docker
             - ./pac:/var/pac

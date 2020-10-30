@@ -35,6 +35,8 @@ RUN ln -sf /var/docker/php/config.ini /usr/local/etc/php/conf.d/project.ini
 RUN ln -sf /var/docker/profile /etc/profile.d/project.sh
 
 RUN wget -q -O /usr/local/bin/composer https://getcomposer.org/composer-stable.phar && chmod +x /usr/local/bin/composer
+RUN mkdir -p /var/composer
+RUN chmod -R a+rwX /var/composer
 
 VOLUME [ "/var/project" ]
 

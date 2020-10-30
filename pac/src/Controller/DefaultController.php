@@ -14,10 +14,15 @@ class DefaultController extends AbstractController
      */
     public function index(MessageGenerator $messageGenerator): Response
     {
-        $number = random_int(0, 100);
-
         return $this->render('base.html.twig', [
-            'number' => $number,
+            'menu1' => [
+                'Environment' => '#',
+                'Docker' => '#',
+            ],
+            'menu2' => [
+                'hub.docker.com' => 'https://hub.docker.com/r/m4rku5/webdock',
+                'github.com' => 'https://github.com/M4RKU5-C0D3/webdock',
+            ],
             'message' => $messageGenerator->getHappyMessage(),
         ]);
     }

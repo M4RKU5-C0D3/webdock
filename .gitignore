@@ -1,4 +1,5 @@
 /.env
+/project/.env
 
 /tmp/*
 !tmp/README.md

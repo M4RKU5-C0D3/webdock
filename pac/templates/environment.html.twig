@@ -3,5 +3,14 @@
 {% block title %}Environment{% endblock %}
 
 {% block body %}
-<p>pac/templates/environment.html.twig</p>
+<table class="table">
+{% for name, value in dotenv %}
+    <tr>
+        <td>{{ name }}</td>
+        <td><input value="{{ value }}"/></td>
+    </tr>
+{% endfor %}
+</table>
+{{ dump(dotenv) }}
+
 {% endblock %}

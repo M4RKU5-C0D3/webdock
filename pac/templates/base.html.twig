@@ -47,14 +47,21 @@
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                 <div class="sidebar-sticky pt-3">
                     <ul class="nav flex-column">
-                        {% for label, link in menu1 %}
-                            <li class="nav-item">
-                                <a class="nav-link active" href="/pac/{{ link }}">
-                                    <span data-feather="home"></span>
-                                    {{ label }} <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
-                        {% endfor %}
+                        <li class="nav-item">
+                            <a class="nav-link {% if app.request.attributes.get('_route') == 'index' %}active{% endif %}" href="{{ path('index') }}">
+                                <span data-feather="home"></span>Dashboard<span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if app.request.attributes.get('_route') == 'environment' %}active{% endif %}" href="{{ path('environment') }}">
+                                <span data-feather="globe"></span>Environment<span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if app.request.attributes.get('_route') == 'docker' %}active{% endif %}" href="{{ path('docker') }}">
+                                <span data-feather="package"></span>Docker<span class="sr-only">(current)</span>
+                            </a>
+                        </li>
                     </ul>
 
                     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -90,7 +97,10 @@
                         </button>
                     </div>
                 </div>
-                {% block body %}{% endblock %}
+                {% block body %}
+                <h2 class="h3">app.request:</h2>
+                <pre>{{ app.request }}</pre>
+                {% endblock %}
             </main>
         </div>
     </div>

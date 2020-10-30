@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 
+# ensure required environment variables
+export PROJECT_DOCUMENTROOT="${PROJECT_DOCUMENTROOT}"
+export PROJECT_LOGS="${PROJECT_LOGS}"
+
 # respect overrides
 if [[ $DOCKER_APACHE_CONF ]] && [[ -f "/var/project/$DOCKER_APACHE_CONF" ]] ; then
     ln -sf /var/project/${DOCKER_APACHE_CONF} /etc/apache2/conf-available/project.conf
@@ -16,6 +20,8 @@ if [[ $DOCKER_ENTRYPOINT ]] && [[ -x "/var/project/$DOCKER_ENTRYPOINT" ]] ; then
 # give some info
 echo
 echo -e "\e[33m""Info:""\e[0m"
+echo -e "PROJECT_DOCUMENTROOT: $PROJECT_DOCUMENTROOT"
+echo -e "PROJECT_LOGS: $PROJECT_LOGS"
 echo -e "PHP: $(php -r "echo PHP_VERSION;")"
 echo -e "Composer: $(composer --version)"
 

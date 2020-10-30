@@ -5,3 +5,5 @@ CPD="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $CPD/../..
 
 docker build -t m4rku5/webdock .
+
+docker image ls m4rku5/webdock

@@ -44,44 +44,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                <div class="sidebar-sticky pt-3">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link {% if app.request.attributes.get('_route') == 'index' %}active{% endif %}" href="{{ path('index') }}">
-                                <span data-feather="home"></span>Dashboard<span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if app.request.attributes.get('_route') == 'environment' %}active{% endif %}" href="{{ path('environment') }}">
-                                <span data-feather="globe"></span>Environment<span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if app.request.attributes.get('_route') == 'docker' %}active{% endif %}" href="{{ path('docker') }}">
-                                <span data-feather="package"></span>Docker<span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                    </ul>
-
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                        <span>Saved reports</span>
-                        <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-                            <span data-feather="plus-circle"></span>
-                        </a>
-                    </h6>
-                    <ul class="nav flex-column mb-2">
-                        {% for label, link in menu2 %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ link }}" target="_blank">
-                                    <span data-feather="file-text"></span>
-                                    {{ label }}
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </nav>
+            {{ include('base.sidebar.html.twig') }}
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">

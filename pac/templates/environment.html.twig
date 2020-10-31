@@ -1,16 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Environment{% endblock %}
+{% block title %}Environment
+{% endblock %}
 
 {% block body %}
-<table class="table">
-{% for name, value in dotenv %}
-    <tr>
-        <td>{{ name }}</td>
-        <td><input value="{{ value }}"/></td>
-    </tr>
-{% endfor %}
-</table>
-{{ dump(dotenv) }}
+	<table class="table">
+		{% for name, value in dotenv %}
+			{% if name matches '/^\\d+$/' %}
+                <tr>
+                    <th colspan="3">{{ value }}</th>
+                </tr>
+            {% else %}
+                <tr>
+                    <td><input type="checkbox" value=""></td>
+                    <td>{{ name }}</td>
+                    <td><input type="text" value="{{ value }}"/></td>
+                </tr>
+			{% endif %}
+		{% endfor %}
+	</table>
+	{{ dump(dotenv) }}
 
 {% endblock %}

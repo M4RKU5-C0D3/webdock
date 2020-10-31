@@ -5,7 +5,7 @@ namespace App\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use sixlive\DotenvEditor\DotenvEditor;
+use App\Service\EnvironmentService;
 
 class DefaultController extends AbstractController
 {
@@ -20,15 +20,10 @@ class DefaultController extends AbstractController
     /**
      * @Route("/env", name="environment")
      */
-    public function environment(): Response
+    public function environment(EnvironmentService $environmentService): Response
     {
-        /* @see https://packagist.org/packages/sixlive/dotenv-editor */
-        $editor = new DotenvEditor;
-
-        $editor->load('/var/project' . '/.env');
-
         return $this->render('environment.html.twig', [
-            'dotenv' => $editor->getEnv(),
+            'dotenv' => $environmentService->getEnv(),
         ]);
     }
 

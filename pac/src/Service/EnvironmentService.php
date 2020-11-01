@@ -11,13 +11,17 @@ class EnvironmentService
 
     public function __construct()
     {
-        $this->dotenv = new Dotenv();
-        $this->dotenv->load('/var/project' . '/.env');
+        $this->dotenv = new Dotenv('/var/project' . '/.env');
+        $this->dotenv->set('PROJECT_DOCUMENTROOT', 'test'); // TODO@MM: remove debug
+        $this->dotenv->enable('PROJECT_DOCUMENTROOT'); // TODO@MM: remove debug
+        $this->dotenv->set('HELLO', 'World'); // TODO@MM: remove debug
+        $this->dotenv->disable('HELLO'); // TODO@MM: remove debug
+        $this->dotenv->unset('DOCKER_PORT'); // TODO@MM: remove debug
     }
 
-    public function getEnv(): array
+    public function getEnv()
     {
-        return $this->dotenv->getEnv();
+        return $this->dotenv->get();
     }
 }
 

@@ -8,8 +8,9 @@ services:
             - ~:/var/host
             - ~/.composer:/var/composer/
             # dev
-            - ./docker:/var/docker
-            - ./pac:/var/pac
             - ./project:/var/project
+            - ./docker:/var/docker
+            - ./libs:/var/libs
+            - ./pac:/var/pac
         ports:
             - ${DOCKER_PORT}:80

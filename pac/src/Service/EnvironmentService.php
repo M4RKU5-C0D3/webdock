@@ -2,23 +2,23 @@
 
 namespace App\Service;
 
-use sixlive\DotenvEditor\DotenvEditor;
+use m4rku5\Dotenv\Dotenv;
 
 class EnvironmentService
 {
+    /** @var Dotenv $dotenv */
+    private $dotenv;
+
+    public function __construct()
+    {
+        $this->dotenv = new Dotenv();
+        $this->dotenv->load('/var/project' . '/.env');
+    }
+
     public function getEnv(): array
     {
-        return $this->getDotenvEditor()->getEnv();
-    }
-
-    public function getDotenvEditor(): DotenvEditor
-    {
-        /* @see https://packagist.org/packages/sixlive/dotenv-editor */
-
-        $editor = new DotenvEditor;
-
-        $editor->load('/var/project' . '/.env');
-
-        return $editor;
+        return $this->dotenv->getEnv();
     }
 }
+
+/* @see https://getcomposer.org/doc/05-repositories.md#path */

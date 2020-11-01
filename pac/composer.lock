@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9634dc3e0a45e41e9dbfc347f1803d5a",
+    "content-hash": "10057d5dc4bf9e78bf4c96ddfc01f678",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -1668,6 +1668,47 @@
                 }
             ],
             "time": "2020-09-14T14:23:00+00:00"
+        },
+        {
+            "name": "m4rku5/dotenv",
+            "version": "v1.2.0",
+            "dist": {
+                "type": "path",
+                "url": "../libs/dotenv",
+                "reference": "258e4fea7068c84402211a900659cda2c631bc00"
+            },
+            "require": {
+                "php": "^7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "m4rku5\\Dotenv\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": []
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Markus Martens",
+                    "email": "markus.martens@gmx.net",
+                    "homepage": "https://github.com/M4RKU5-C0D3",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A tool to manage dotenv files",
+            "homepage": "https://github.com/M4RKU5-C0D3/dotenv",
+            "keywords": [
+                "dotenv"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "monolog/monolog",

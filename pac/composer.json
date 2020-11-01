@@ -1,6 +1,15 @@
 {
     "type": "project",
     "license": "proprietary",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../libs/dotenv",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
     "require": {
         "php": ">=7.2.5",
         "ext-ctype": "*",
@@ -10,6 +19,7 @@
         "doctrine/doctrine-bundle": "^2.1",
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.7",
+        "m4rku5/dotenv": "^1.2",
         "phpdocumentor/reflection-docblock": "^5.2",
         "sensio/framework-extra-bundle": "^5.6",
         "sixlive/dotenv-editor": "^1.2",

@@ -34,4 +34,12 @@ class DefaultController extends AbstractController
     {
         return $this->render('docker.html.twig');
     }
+
+    /**
+     * @Route("/clockify", name="clockify")
+     */
+    public function clockify(): Response
+    {
+        return $this->render('clockify.html.twig');
+    }
 }

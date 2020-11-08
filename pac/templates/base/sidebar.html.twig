@@ -12,6 +12,11 @@
                 </a>
                 <i class="fas fa-exclamation-triangle d-flex align-items-center text-danger"></i>
             </li>
+            <li class="nav-item d-flex justify-content-between align-items-center pr-3">
+                <a class="nav-link {% if app.request.attributes.get('_route') == 'sshconf' %}active{% endif %}" href="{{ path('sshconf') }}">
+                    <i class="fas fa-terminal"></i>SSH Config
+                </a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link {% if app.request.attributes.get('_route') == 'docker' %}active{% endif %}" href="{{ path('docker') }}">
                     <i class="fab fa-docker"></i>Docker

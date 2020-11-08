@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "10057d5dc4bf9e78bf4c96ddfc01f678",
+    "content-hash": "41cc9aa68ab30daa9b0f371993d9b5e0",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -1670,12 +1670,96 @@
             "time": "2020-09-14T14:23:00+00:00"
         },
         {
+            "name": "m4rku5/clockify",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../libs/clockify",
+                "reference": "6f12ed9e0f8bc59cc73009686f4ea30d2b0beb37"
+            },
+            "require": {
+                "php": "^7.4",
+                "symfony/yaml": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "m4rku5\\Clockify\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": []
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Markus Martens",
+                    "email": "markus.martens@gmx.net",
+                    "homepage": "https://github.com/M4RKU5-C0D3",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A tool to manage docker-compose files",
+            "homepage": "https://github.com/M4RKU5-C0D3/clockify",
+            "keywords": [
+                "clockify"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "m4rku5/dockcomp",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../libs/dockcomp",
+                "reference": "77b11685aff95677b9ed08cac9bf5d792b16c264"
+            },
+            "require": {
+                "php": "^7.4",
+                "symfony/yaml": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "m4rku5\\DockComp\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": []
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Markus Martens",
+                    "email": "markus.martens@gmx.net",
+                    "homepage": "https://github.com/M4RKU5-C0D3",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A tool to manage docker-compose files",
+            "homepage": "https://github.com/M4RKU5-C0D3/dockcomp",
+            "keywords": [
+                "dockcomp"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "m4rku5/dotenv",
-            "version": "v1.2.0",
+            "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "../libs/dotenv",
-                "reference": "258e4fea7068c84402211a900659cda2c631bc00"
+                "reference": "77b11685aff95677b9ed08cac9bf5d792b16c264"
             },
             "require": {
                 "php": "^7.4"
@@ -1704,6 +1788,48 @@
             "homepage": "https://github.com/M4RKU5-C0D3/dotenv",
             "keywords": [
                 "dotenv"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "m4rku5/sshconf",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../libs/sshconf",
+                "reference": "efd9c43fef9be2006395ebcc6248e1f718aa92e3"
+            },
+            "require": {
+                "php": "^7.1",
+                "symfony/yaml": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "m4rku5\\SSHConf\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": []
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Markus Martens",
+                    "email": "markus.martens@gmx.net",
+                    "homepage": "https://github.com/M4RKU5-C0D3",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A tool to manage ssh config files",
+            "homepage": "https://github.com/M4RKU5-C0D3/sshconf",
+            "keywords": [
+                "SSHConf"
             ],
             "transport-options": {
                 "symlink": true,
@@ -8349,7 +8475,12 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "m4rku5/clockify": 20,
+        "m4rku5/dockcomp": 20,
+        "m4rku5/dotenv": 20,
+        "m4rku5/sshconf": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

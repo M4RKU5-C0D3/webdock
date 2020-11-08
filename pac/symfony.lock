@@ -90,8 +90,17 @@
     "laminas/laminas-zendframework-bridge": {
         "version": "1.1.1"
     },
+    "m4rku5/clockify": {
+        "version": "dev-master"
+    },
+    "m4rku5/dockcomp": {
+        "version": "dev-master"
+    },
     "m4rku5/dotenv": {
         "version": "v1.2.0"
+    },
+    "m4rku5/sshconf": {
+        "version": "dev-master"
     },
     "monolog/monolog": {
         "version": "2.1.1"

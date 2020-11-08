@@ -1,10 +1,12 @@
 {
+    "name": "m4rku5/pac",
+    "description": "A tool to manage projects",
     "type": "project",
     "license": "proprietary",
     "repositories": [
         {
             "type": "path",
-            "url": "../libs/dotenv",
+            "url": "../libs/*",
             "options": {
                 "symlink": true
             }
@@ -19,7 +21,10 @@
         "doctrine/doctrine-bundle": "^2.1",
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.7",
-        "m4rku5/dotenv": "^1.2",
+        "m4rku5/clockify": "@dev",
+        "m4rku5/dockcomp": "@dev",
+        "m4rku5/dotenv": "@dev",
+        "m4rku5/sshconf": "@dev",
         "phpdocumentor/reflection-docblock": "^5.2",
         "sensio/framework-extra-bundle": "^5.6",
         "sixlive/dotenv-editor": "^1.2",
